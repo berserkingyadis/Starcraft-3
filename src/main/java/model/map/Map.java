@@ -5,13 +5,12 @@ import java.util.ArrayList;
 
 public class Map {
 
-    private static ArrayList<Building> buildings = new ArrayList<Building>();
+    private ArrayList<Building> buildings = new ArrayList<Building>();
 
     public Map() {
-
     }
 
-    public static void addBuilding(Building building) {
+    public void addBuilding(Building building) {
         buildings.add(building);
     }
 
@@ -21,6 +20,10 @@ public class Map {
                 buildings.remove(build);
             }
         }
+    }
+
+    public Building getBuildingByIndex(int index) {
+        return buildings.get(index);
     }
 
     public void printBuildings() {

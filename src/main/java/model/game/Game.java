@@ -9,25 +9,27 @@ import java.util.ArrayList;
 
 public class Game {
 
-    private ArrayList<Building> buildings = new ArrayList<Building>();
+    private ArrayList<Building> allBuildings = new ArrayList<Building>();
     private ArrayList<Unit> units = new ArrayList<Unit>();
 
     public void run() {
         Map map = new Map();
         Player player = new Player(0, 0, 10, 100);
         initializeBuildings();
-        player.createBuilding("Pylon");
+        player.createBuilding("Pylon", allBuildings, map);
+        player.createBuilding("Pylon", allBuildings, map);
+        player.createBuilding("Nexus", allBuildings, map);
         map.printBuildings();
     }
 
     public void initializeBuildings() {
         Building pylon = new Pylon();
-        buildings.add(pylon);
+        allBuildings.add(pylon);
         Building nexus = new Nexus();
-        buildings.add(nexus);
+        allBuildings.add(nexus);
     }
 
-    public ArrayList<Building> getBuildings() {
-        return buildings;
+    public ArrayList<Building> getAllBuildings() {
+        return allBuildings;
     }
 }

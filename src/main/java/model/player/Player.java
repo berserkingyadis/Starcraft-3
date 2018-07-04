@@ -4,6 +4,8 @@ import model.map.Map;
 import model.game.Game;
 import model.selectable.building.Building;
 
+import java.util.ArrayList;
+
 public class Player {
 
     private Game game;
@@ -20,11 +22,23 @@ public class Player {
         this.maxSupply = maxSupply;
     }
 
-    public void createBuilding(String buildingName) {
-        for(Building build : game.getBuildings()) {
-            if(buildingName.equals(build.getName())) {
-
+    public void createBuilding(String buildingName, ArrayList<Building> list, Map map) {
+        if(!list.isEmpty()) {
+            for(Building build : list) {
+                if(buildingName.equals(build.getName())) {
+                    try {
+                        Building newBuilding = build.getClass().newInstance();
+                        map.addBuilding(newBuilding);
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
+        }
+        else {
+            System.out.println("List is empty; no buildings to compare to...");
         }
     }
 
