@@ -14,12 +14,14 @@ public class Game {
 
     public void run() {
         Map map = new Map();
-        Player player = new Player(0, 0, 10, 100);
+        Player player = new Player(0, 0, 0, 0);
         initializeBuildings();
         player.createBuilding("Pylon", allBuildings, map);
         player.createBuilding("Pylon", allBuildings, map);
         player.createBuilding("Nexus", allBuildings, map);
         player.removeBuilding(map.getBuildingByIndex(2), map);
+        System.out.println(player.getMaxSupply());
+        System.out.println(map.getBuildingByIndex(0).getBuildable());
         map.printBuildings();
     }
 

@@ -1,5 +1,7 @@
 package model.selectable.building;
 
+import model.player.Player;
+
 public class Building {
     
     private String name = "";
@@ -9,8 +11,9 @@ public class Building {
     private int gasCost = 0;
     private int xSize = 0;
     private int ySize = 0;
+    private boolean isBuildable = false;
 
-    public Building(String name, int hp, int constructionTime, int mineralCost, int gasCost, int xSize, int ySize) {
+    public Building(String name, int hp, int constructionTime, int mineralCost, int gasCost, int xSize, int ySize, boolean isBuildable) {
         this.name = name;
         this.hp = hp;
         this.constructionTime = constructionTime;
@@ -18,6 +21,15 @@ public class Building {
         this.gasCost = gasCost;
         this.xSize = xSize;
         this.ySize = ySize;
+        this.isBuildable = false;
+    }
+
+    public void activateBuildingEffect(Building building, Player player) {
+        System.out.println("Building effect activated!.. this should never happen!!..hurray!!!");
+    }
+
+    public boolean hasAccessTechTree() {
+        return false;
     }
 
     public void setName(String name) {
@@ -74,5 +86,13 @@ public class Building {
 
     public int getYSize() {
         return this.ySize;
+    }
+
+    public void setBuildable(boolean isBuildable) {
+        this.isBuildable = isBuildable;
+    }
+
+    public boolean getBuildable() {
+        return isBuildable;
     }
 }

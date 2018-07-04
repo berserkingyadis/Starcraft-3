@@ -29,6 +29,7 @@ public class Player {
                     try {
                         Building newBuilding = build.getClass().newInstance();
                         map.addBuilding(newBuilding);
+                        newBuilding.activateBuildingEffect(newBuilding, this);
                     } catch (InstantiationException e) {
                         e.printStackTrace();
                     } catch (IllegalAccessException e) {

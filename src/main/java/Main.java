@@ -8,7 +8,7 @@ public class Main {
         GamePanel panel = new GamePanel();
         Game game = new Game();
         frame.add(panel);
-        frame.setVisible(true);
-        // game.run();
+        frame.setVisible(false);
+        game.run();
     }
 }
