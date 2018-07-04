@@ -45,6 +45,7 @@ public class Player {
 
     public void removeBuilding(Building building, Map map) {
         map.removeBuilding(building);
+        building.deactivateBuildingEffect(building, this);
     }
 
     public void setMinerals(int minerals) {

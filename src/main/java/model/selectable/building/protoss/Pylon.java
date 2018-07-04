@@ -14,4 +14,9 @@ public class Pylon extends ProtossBuilding implements model.selectable.building.
 	    System.out.println("Increasing supply cap!");
 	    player.setMaxSupply(player.getMaxSupply() + 8);
     }
+
+    public void deactivateBuildingEffect(Building building, Player player) {
+	    System.out.println("Decreasing supply cap!");
+	    player.setMaxSupply(player.getMaxSupply() - 8);
+    }
 }

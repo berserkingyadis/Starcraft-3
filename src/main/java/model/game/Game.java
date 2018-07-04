@@ -19,7 +19,8 @@ public class Game {
         player.createBuilding("Pylon", allBuildings, map);
         player.createBuilding("Pylon", allBuildings, map);
         player.createBuilding("Nexus", allBuildings, map);
-        player.removeBuilding(map.getBuildingByIndex(2), map);
+        player.removeBuilding(map.getBuildingByIndex(1), map);
+        player.removeBuilding(map.getBuildingByIndex(1), map);
         System.out.println(player.getMaxSupply());
         System.out.println(map.getBuildingByIndex(0).getBuildable());
         map.printBuildings();

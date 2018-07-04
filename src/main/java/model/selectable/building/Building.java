@@ -28,6 +28,10 @@ public class Building {
         System.out.println("Building effect activated!.. this should never happen!!..hurray!!!");
     }
 
+    public void deactivateBuildingEffect(Building building, Player player) {
+        System.out.println("Building effect deactivated!.. this should never happen!!..hurray!!!");
+    }
+
     public boolean hasAccessTechTree() {
         return false;
     }
