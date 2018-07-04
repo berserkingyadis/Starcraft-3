@@ -19,6 +19,7 @@ public class Game {
         player.createBuilding("Pylon", allBuildings, map);
         player.createBuilding("Pylon", allBuildings, map);
         player.createBuilding("Nexus", allBuildings, map);
+        player.removeBuilding(map.getBuildingByIndex(2), map);
         map.printBuildings();
     }
 

@@ -42,9 +42,9 @@ public class Player {
         }
     }
 
-//    public void deleteBuilding(Building building) {
-//        map.removeBuilding(building);
-//    }
+    public void removeBuilding(Building building, Map map) {
+        map.removeBuilding(building);
+    }
 
     public void setMinerals(int minerals) {
         this.minerals = minerals;

@@ -15,11 +15,7 @@ public class Map {
     }
 
     public void removeBuilding(Building building) {
-        for(Building build : buildings) {
-            if (build == building) {
-                buildings.remove(build);
-            }
-        }
+        buildings.remove(building);
     }
 
     public Building getBuildingByIndex(int index) {
