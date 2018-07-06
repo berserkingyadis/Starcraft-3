@@ -1,5 +1,7 @@
 package view;
 
+import model.GameModel;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -8,7 +10,10 @@ import java.util.Observer;
 
 public class GameFrame extends JFrame implements Observer {
 
-    public GameFrame() {
+    private GameModel model;
+
+    public GameFrame(GameModel model) {
+        this.model = model;
         final String DEFAULT_TITLE = "Starcraft editor";
         final int DEFAULT_WIDTH = 850;
         final int DEFAULT_HEIGHT = 800;
@@ -28,6 +33,10 @@ public class GameFrame extends JFrame implements Observer {
         menuBar.add(editMenu);
 
         this.setJMenuBar(menuBar);
+    }
+
+    public GameModel getModel() {
+        return this.model;
     }
 
     @Override

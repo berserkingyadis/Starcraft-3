@@ -36,6 +36,14 @@ public class Map {
         return units.get(index);
     }
 
+    public ArrayList<Building> getBuildings() {
+        return this.buildings;
+    }
+
+    public ArrayList<Unit> getUnits() {
+        return this.units;
+    }
+
     public void printUnits() {
         System.out.println("Units on the map: " + units);
     }

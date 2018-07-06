@@ -14,3 +14,7 @@ a cybernetics core and also fulfills the resource criteria, then isBuildable = t
 
 2. When creating buildings and units attribute the player who is creating them to the building/unit.
 Maybe in the constructor of the building/unit.
+
+3. List window that shows all available buildings to build with their cost.
+
+4. List window that shows all current buildings on the map.

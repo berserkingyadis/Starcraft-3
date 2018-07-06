@@ -1,7 +1,6 @@
 package model.player;
 
 import model.map.Map;
-import model.game.Game;
 import model.selectable.building.Building;
 import model.selectable.building.protoss.Nexus;
 import model.selectable.building.protoss.Pylon;
