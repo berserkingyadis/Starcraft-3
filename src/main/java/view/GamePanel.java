@@ -11,23 +11,21 @@ import java.util.Observer;
 public class GamePanel extends JPanel implements Observer {
 
     private GameFrame frame;
-    private GameModel model;
 
-    public GamePanel(GameFrame frame, GameModel model) {
+    public GamePanel(GameFrame frame) {
         this.frame = frame;
-        this.model = model;
-        this.paintResources();
+        // paintResources is called on by something in the controller.
+        this.paintResources(0, 0);
     }
 
-    private void paintResources() {
-        JLabel minerals = new JLabel("Minerals:");
-        JLabel mineralsValue = new JLabel(String.valueOf(model.getPlayer().getMinerals()));
-        JLabel gas = new JLabel("Gas:");
-        JLabel gasValue = new JLabel(String.valueOf(model.getPlayer().getGas()));
-
-        this.add(minerals);
+    public void paintResources(int minerals, int gas) {
+        JLabel mineralsLabel = new JLabel("Minerals:");
+        JLabel mineralsValue = new JLabel(String.valueOf(minerals));
+        JLabel gasLabel = new JLabel("Gas:");
+        JLabel gasValue = new JLabel(String.valueOf(gas));
+        this.add(mineralsLabel);
         this.add(mineralsValue);
-        this.add(gas);
+        this.add(gasLabel);
         this.add(gasValue);
     }
 
@@ -40,14 +38,11 @@ public class GamePanel extends JPanel implements Observer {
 
     @Override
     public void update(Observable observed, Object message) {
+        System.out.println("updated");
         repaint();
     }
 
     public GameFrame getFrame() {
         return this.frame;
-    }
-
-    public GameModel getModel() {
-        return this.model;
     }
 }

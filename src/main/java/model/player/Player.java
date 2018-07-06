@@ -5,6 +5,7 @@ import model.selectable.building.Building;
 import model.selectable.building.protoss.Nexus;
 import model.selectable.building.protoss.Pylon;
 import model.selectable.unit.Unit;
+import view.ConsoleView;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -107,6 +108,11 @@ public class Player extends Observable {
     public void removeUnit(Unit unit, Map map) {
         map.removeUnit(unit);
         playerUnits.remove(unit);
+    }
+
+    public void incrementPlayerMinerals() {
+        ConsoleView.consoleDebug("Incrementing....");
+        setMinerals(getMinerals() + 1);
     }
 
     public void setMinerals(int minerals) {

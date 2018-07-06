@@ -3,7 +3,9 @@ package model;
 import model.map.Map;
 import model.player.Player;
 
-public class GameModel {
+import java.util.Observable;
+
+public class GameModel extends Observable {
 
     private Player player;
     private Map map;
