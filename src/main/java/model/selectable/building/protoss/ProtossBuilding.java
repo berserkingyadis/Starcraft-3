@@ -15,6 +15,8 @@ public class ProtossBuilding extends model.selectable.building.Building {
 
     public void setShield(int shield) {
         this.shield = shield;
+        setChanged();
+        notifyObservers();
     }
 
     public int getShield() {
@@ -23,6 +25,8 @@ public class ProtossBuilding extends model.selectable.building.Building {
 
     public void setIsPowered(boolean isPowered) {
         this.isPowered = isPowered;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getIsPowered() {
@@ -31,6 +35,8 @@ public class ProtossBuilding extends model.selectable.building.Building {
 
     public void setShieldRegenerationRate(int shieldRegenerationRate) {
         this.shieldRegenerationRate = shieldRegenerationRate;
+        setChanged();
+        notifyObservers();
     }
 
     public int getShieldRegenerationRate() {

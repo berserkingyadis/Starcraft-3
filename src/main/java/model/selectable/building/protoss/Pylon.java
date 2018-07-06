@@ -2,6 +2,7 @@ package model.selectable.building.protoss;
 
 import model.player.Player;
 import model.selectable.building.Building;
+import view.ConsoleView;
 
 public class Pylon extends ProtossBuilding implements model.selectable.building.BuildingInterface {
 
@@ -11,12 +12,16 @@ public class Pylon extends ProtossBuilding implements model.selectable.building.
 	}
 
     public void activateBuildingEffect(Building building, Player player) {
-	    System.out.println("Increasing supply cap!");
+	    // This print should be done when pressing a button. So the button is pressed and calls the function in view that
+        // states "Increasing supply cap!".
+	    ConsoleView.consoleDebug("Increasing supply cap!");
 	    player.setMaxSupply(player.getMaxSupply() + 8);
     }
 
     public void deactivateBuildingEffect(Building building, Player player) {
-	    System.out.println("Decreasing supply cap!");
+        // This print should be done when pressing a button. So the button is pressed and calls the function in view that
+        // states "Decreasing supply cap!".
+	    ConsoleView.consoleDebug("Decreasing supply cap!");
 	    player.setMaxSupply(player.getMaxSupply() - 8);
     }
 }

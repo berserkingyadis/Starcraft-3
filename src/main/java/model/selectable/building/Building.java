@@ -1,6 +1,7 @@
 package model.selectable.building;
 
 import model.player.Player;
+import view.ConsoleView;
 
 public class Building extends model.selectable.Selectable {
     
@@ -20,11 +21,11 @@ public class Building extends model.selectable.Selectable {
     }
 
     public void activateBuildingEffect(Building building, Player player) {
-        System.out.println("Building effect activated!.. this should never happen!!..hurray!!!");
+        ConsoleView.consoleDebug("Building effect activated!.. this should never happen!!..hurray!!!");
     }
 
     public void deactivateBuildingEffect(Building building, Player player) {
-        System.out.println("Building effect deactivated!.. this should never happen!!..hurray!!!");
+        ConsoleView.consoleDebug("Building effect deactivated!.. this should never happen!!..hurray!!!");
     }
 
     public boolean hasAccessTechTree() {
@@ -33,6 +34,8 @@ public class Building extends model.selectable.Selectable {
 
     public void setXSize(int xSize) {
         this.xSize = xSize;
+        setChanged();
+        notifyObservers();
     }
 
     public int getXSize() {
@@ -41,6 +44,8 @@ public class Building extends model.selectable.Selectable {
 
     public void setYSize(int ySize) {
         this.ySize = ySize;
+        setChanged();
+        notifyObservers();
     }
 
     public int getYSize() {

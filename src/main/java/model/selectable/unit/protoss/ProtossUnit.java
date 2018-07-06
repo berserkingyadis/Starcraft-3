@@ -13,6 +13,8 @@ public class ProtossUnit extends model.selectable.unit.Unit {
 
     public void setShield(int shield) {
         this.shield = shield;
+        setChanged();
+        notifyObservers();
     }
 
     public int getShield() {
@@ -21,6 +23,8 @@ public class ProtossUnit extends model.selectable.unit.Unit {
 
     public void setShieldRegeneration(int shieldRegeneration) {
         this.shieldRegeneration = shieldRegeneration;
+        setChanged();
+        notifyObservers();
     }
 
     public int getShieldRegeneration() {

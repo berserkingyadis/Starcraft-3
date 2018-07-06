@@ -19,6 +19,8 @@ public class Unit extends model.selectable.Selectable {
 
     public void setMovementSpeed(float movementSpeed) {
         this.movementSpeed = movementSpeed;
+        setChanged();
+        notifyObservers();
     }
 
     public float getMovementSpeed() {
@@ -27,6 +29,8 @@ public class Unit extends model.selectable.Selectable {
 
     public void setSupplyCost(int supplyCost) {
         this.supplyCost = supplyCost;
+        setChanged();
+        notifyObservers();
     }
 
     public int getSupplyCost() {

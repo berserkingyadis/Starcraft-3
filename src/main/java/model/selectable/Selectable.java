@@ -1,6 +1,8 @@
 package model.selectable;
 
-public class Selectable {
+import java.util.Observable;
+
+public class Selectable extends Observable {
     private String name = "";
     private int hp = 0;
     private int constructionTime = 0;
@@ -19,6 +21,8 @@ public class Selectable {
 
     public void setName(String name) {
         this.name = name;
+        setChanged();
+        notifyObservers();
     }
 
     public String getName() {
@@ -27,6 +31,8 @@ public class Selectable {
 
     public void setHp(int hp) {
         this.hp = hp;
+        setChanged();
+        notifyObservers();
     }
 
     public int getHp() {
@@ -43,6 +49,8 @@ public class Selectable {
 
     public void setMineralCost(int mineralCost) {
         this.mineralCost = mineralCost;
+        setChanged();
+        notifyObservers();
     }
 
     public int getMineralCost() {
@@ -51,6 +59,8 @@ public class Selectable {
 
     public void setGasCost(int gasCost) {
         this.gasCost = gasCost;
+        setChanged();
+        notifyObservers();
     }
 
     public int getGasCost() {
@@ -59,6 +69,8 @@ public class Selectable {
 
     public void setBuildable(boolean isBuildable) {
         this.isBuildable = isBuildable;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getBuildable() {
