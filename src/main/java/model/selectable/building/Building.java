@@ -2,7 +2,7 @@ package model.selectable.building;
 
 import model.player.Player;
 
-public class Building {
+public class Building extends model.selectable.Selectable {
     
     private String name = "";
     private int hp = 0;
@@ -14,14 +14,9 @@ public class Building {
     private boolean isBuildable = false;
 
     public Building(String name, int hp, int constructionTime, int mineralCost, int gasCost, int xSize, int ySize, boolean isBuildable) {
-        this.name = name;
-        this.hp = hp;
-        this.constructionTime = constructionTime;
-        this.mineralCost = mineralCost;
-        this.gasCost = gasCost;
+        super(name, hp, constructionTime, mineralCost, gasCost, isBuildable);
         this.xSize = xSize;
         this.ySize = ySize;
-        this.isBuildable = false;
     }
 
     public void activateBuildingEffect(Building building, Player player) {
@@ -34,46 +29,6 @@ public class Building {
 
     public boolean hasAccessTechTree() {
         return false;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public int getHp() {
-        return this.hp;
-    }
-
-    public void setConstructionTime(int constructionTime) {
-        this.constructionTime = constructionTime;
-    }
-
-    public int getConstructionTime() {
-        return this.constructionTime;
-    }
-
-    public void setMineralCost(int mineralCost) {
-        this.mineralCost = mineralCost;
-    }
-
-    public int getMineralCost() {
-        return this.mineralCost;
-    }
-
-    public void setGasCost(int gasCost) {
-        this.gasCost = gasCost;
-    }
-
-    public int getGasCost() {
-        return this.gasCost;
     }
 
     public void setXSize(int xSize) {
@@ -92,11 +47,4 @@ public class Building {
         return this.ySize;
     }
 
-    public void setBuildable(boolean isBuildable) {
-        this.isBuildable = isBuildable;
-    }
-
-    public boolean getBuildable() {
-        return isBuildable;
-    }
 }
