@@ -1,18 +1,28 @@
-public Building {
+package model.selectable;
+
+public class Selectable {
+    private String name = "";
     private int hp = 0;
     private int constructionTime = 0;
     private int mineralCost = 0;
     private int gasCost = 0;
-    private xSize = 0;
-    private ySize = 0;
+    private boolean isBuildable = false;
 
-    public Building(int hp, int constructionTime, int mineralCost, int gasCost, int xSize, int ySize) {
+    public Selectable(String name, int hp, int constructionTime, int mineralCost, int gasCost, boolean isBuildable) {
+        this.name = name;
         this.hp = hp;
         this.constructionTime = constructionTime;
         this.mineralCost = mineralCost;
         this.gasCost = gasCost;
-        this.xSize = xSize;
-        this.ySize = ySize;
+        this.isBuildable = false;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public void setHp(int hp) {
@@ -47,15 +57,11 @@ public Building {
         return this.gasCost;
     }
 
-    public void setXSize(int xSize) {
-        this.xSize = xSize;
+    public void setBuildable(boolean isBuildable) {
+        this.isBuildable = isBuildable;
     }
 
-    public int getXSize() {
-        return this.xSize;
-    }
-
-    public void setYSize(int ySize) {
-        this.ySize = ySize;
+    public boolean getBuildable() {
+        return isBuildable;
     }
 }
