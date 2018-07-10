@@ -1,9 +1,6 @@
 import controller.GameController;
 import model.GameModel;
-import view.GameFrame;
-import view.GasPanel;
-import view.MineralsPanel;
-import view.GameView;
+import view.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,15 +8,13 @@ public class Main {
 
         GameFrame frame = new GameFrame();
 
-        MineralsPanel mineralsPanel = new MineralsPanel(frame);
-        GasPanel gasPanel = new GasPanel(frame);
+        ResourcePanel resourcePanel = new ResourcePanel(frame);
 
-        GameView view = new GameView(frame, mineralsPanel, gasPanel);
+        GameView view = new GameView(frame, resourcePanel);
         GameController controller = new GameController(model, view);
         System.out.print(model.getPlayer().getMinerals());
         System.out.println(model.getPlayer().getGas());
-        frame.add(mineralsPanel);
-        frame.add(gasPanel);
+        frame.add(resourcePanel);
         frame.setVisible(true);
     }
 }

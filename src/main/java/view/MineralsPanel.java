@@ -9,8 +9,6 @@ import java.util.Observer;
 
 public class MineralsPanel extends JPanel implements Observer {
 
-    private ArrayList<JLabel> labelList = new ArrayList<JLabel>();
-
     private GameFrame frame;
     private JLabel mineralsValueLabel;
     private JButton incrementMineralsButton;

@@ -14,22 +14,21 @@ public class GameController {
     public GameController(GameModel model, GameView view) {
         this.model = model;
         this.view = view;
-        model.getPlayer().addObserver(view.getMineralsPanel());
-        model.getPlayer().addObserver(view.getGasPanel());
+        model.getPlayer().addObserver(view.getResourcePanel());
         EventHandler resourceHandler = new EventHandler();
 
-        view.getMineralsPanel().getMineralsButton().addActionListener(resourceHandler);
-        view.getGasPanel().getGasButton().addActionListener(resourceHandler);
+        view.getResourcePanel().getIncrementMineralsButton().addActionListener(resourceHandler);
+        view.getResourcePanel().getIncrementGasButton().addActionListener(resourceHandler);
     }
 
     private class EventHandler implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            if(e.getSource() == view.getMineralsPanel().getMineralsButton()) {
+            if(e.getSource() == view.getResourcePanel().getIncrementMineralsButton()) {
                 model.getPlayer().incrementPlayerMinerals();
                 System.out.print(model.getPlayer().getMinerals());
             }
-            else if(e.getSource() == view.getGasPanel().getGasButton()) {
+            else if(e.getSource() == view.getResourcePanel().getIncrementGasButton()) {
                 model.getPlayer().incrementPlayerGas();
                 System.out.print(model.getPlayer().getGas());
             }
