@@ -111,14 +111,19 @@ public class Player extends Observable {
     }
 
     public void incrementPlayerMinerals() {
-        ConsoleView.consoleDebug("Incrementing....");
+        ConsoleView.consoleDebug("Incrementing minerals....");
         setMinerals(getMinerals() + 1);
     }
+    public void incrementPlayerGas() {
+        ConsoleView.consoleDebug("Incrementing gas....");
+        setGas(getGas() + 1);
+    }
+
 
     public void setMinerals(int minerals) {
         this.minerals = minerals;
         setChanged();
-        notifyObservers();
+        notifyObservers(minerals);
     }
 
     public int getMinerals() {
@@ -128,7 +133,7 @@ public class Player extends Observable {
     public void setGas(int gas) {
         this.gas = gas;
         setChanged();
-        notifyObservers();
+        notifyObservers(gas);
     }
 
     public int getGas() {

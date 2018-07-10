@@ -1,7 +1,5 @@
 package view;
 
-import model.GameModel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
