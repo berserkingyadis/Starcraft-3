@@ -22,7 +22,7 @@ public class Selectable extends Observable {
     public void setName(String name) {
         this.name = name;
         setChanged();
-        notifyObservers();
+        notifyObservers(name);
     }
 
     public String getName() {

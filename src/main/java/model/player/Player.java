@@ -280,8 +280,22 @@ public class Player extends Observable {
         return this.hasForge;
     }
 
+    public Unit getUnitByName(String string) {
+        for(Unit u : allUnits) {
+            if(string.equals(u.getName())) {
+                return u;
+            }
+        }
+        System.out.println("Could not find unit, should never happen.");
+        return null;
+    }
+
     public ArrayList<Building> getAllBuildings() {
         return this.allBuildings;
+    }
+
+    public ArrayList<Unit> getAllUnits() {
+        return this.allUnits;
     }
 
     public ArrayList<Building> getPlayerBuildings() {
