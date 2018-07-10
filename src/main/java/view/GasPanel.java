@@ -21,7 +21,6 @@ public class GasPanel extends JPanel implements Observer {
         add(gasLabel);
         add(gasLabelValue);
         add(incrementGasButton);
-
     }
 
     public JButton getGasButton() {
@@ -30,8 +29,11 @@ public class GasPanel extends JPanel implements Observer {
 
     @Override
     public void update(Observable observable, Object o) {
-        System.out.println("OBSERVED: " + observable);
-        gasLabelValue.setText("" + ((Integer)o).intValue());
+        String temp = o.toString();
+        if(temp.contains("gas")) {
+            temp = temp.replace("gas", "");
+            gasLabelValue.setText("" + temp);
+        }
     }
 
     public JFrame getFrame() {

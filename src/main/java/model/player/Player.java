@@ -123,7 +123,7 @@ public class Player extends Observable {
     public void setMinerals(int minerals) {
         this.minerals = minerals;
         setChanged();
-        notifyObservers(minerals);
+        notifyObservers(minerals + "minerals");
     }
 
     public int getMinerals() {
@@ -133,7 +133,7 @@ public class Player extends Observable {
     public void setGas(int gas) {
         this.gas = gas;
         setChanged();
-        notifyObservers(gas);
+        notifyObservers(gas + "gas");
     }
 
     public int getGas() {

@@ -40,10 +40,11 @@ public class MineralsPanel extends JPanel implements Observer {
 
     @Override
     public void update(Observable observable, Object o) {
-        System.out.println("updated in player!");
-        System.out.println("OBSERVED: " + observable);
-        System.out.println("OBJECT: " + o);
-        mineralsValueLabel.setText("" + ((Integer)o).intValue());
+        String temp = o.toString();
+        if(temp.contains("minerals")) {
+            temp = temp.replace("minerals", "");
+            mineralsValueLabel.setText("" + temp);
+        }
     }
 
     public JLabel getMineralsValue() {
