@@ -5,6 +5,7 @@ import model.selectable.building.Building;
 import model.selectable.building.protoss.Nexus;
 import model.selectable.building.protoss.Pylon;
 import model.selectable.unit.Unit;
+import model.selectable.upgrades.ProtossUpgrades;
 import view.ConsoleView;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class Player extends Observable {
 
     private ArrayList<Building> playerBuildings = new ArrayList<Building>();
     private ArrayList<Unit> playerUnits = new ArrayList<Unit>();
+    private ArrayList<ProtossUpgrades> playerProtossUpgrades = new ArrayList<ProtossUpgrades>();
 
     private int minerals = 0;
     private int gas = 0;
@@ -44,6 +46,7 @@ public class Player extends Observable {
         this.maxSupply = maxSupply;
         this.race = race;
         initializeBuildings();
+
     }
 
     private void initializeBuildings() {

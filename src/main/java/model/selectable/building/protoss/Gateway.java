@@ -9,16 +9,16 @@ import model.selectable.unit.Unit;
 
 import java.util.ArrayList;
 
-public class Gateway extends ProtossBuilding implements BuildingInterface, UnitConstructorBuilding {
+public class Gateway extends ProtossBuilding {
 
     private ArrayList<Unit> units = new ArrayList<Unit>();
 
     public Gateway() {
-        super("Gateway", 500, 46, 150, 0, 3, 3, 500, false, 5);
-        this.setBuildable(true);
+        super("Gateway", 500, 46, 150, 0, 3, 3, 500, false, 5, 1);
+        this.setBuildable(false);
     }
 
-    public void initializeUnitList() {
+    /*public void initializeUnitList() {
         Unit zealot = new Zealot();
         units.add(zealot);
         Unit stalker = new Stalker();
@@ -51,7 +51,7 @@ public class Gateway extends ProtossBuilding implements BuildingInterface, UnitC
                 System.out.println("Could not find the unit to be created! This should never happen.");
         }
     }
-
+*/
     public void activateBuildingEffect(Building building, Player player) {
         player.setHasGateway(true);
     }
@@ -70,4 +70,7 @@ public class Gateway extends ProtossBuilding implements BuildingInterface, UnitC
         System.out.println("Gateway destroyed!");
     }
 
+    public void convertToWarpGate() {
+        // TODO: implement this
+    }
 }

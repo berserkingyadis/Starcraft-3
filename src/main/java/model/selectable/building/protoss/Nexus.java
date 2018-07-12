@@ -15,7 +15,7 @@ public class Nexus extends ProtossBuilding implements BuildingInterface, UnitCon
     private ArrayList<Unit> units = new ArrayList<Unit>();
 
     public Nexus() {
-        super("Nexus", 400, 120, 100, 0, 2, 2, 200, true, 10); // TODO fix the values
+        super("Nexus", 400, 120, 100, 0, 2, 2, 200, true, 10, 1); // TODO fix the values
         this.setBuildable(true);
     }
 

@@ -7,7 +7,7 @@ import view.ConsoleView;
 public class Pylon extends ProtossBuilding implements model.selectable.building.BuildingInterface {
 
 	public Pylon() {
-        super("Pylon", 200, 18, 100, 0, 2, 2, 200, true, 10);
+        super("Pylon", 200, 18, 100, 0, 2, 2, 200, true, 10, 1);
         this.setBuildable(true);
 	}
 

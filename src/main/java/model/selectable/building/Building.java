@@ -14,8 +14,8 @@ public class Building extends model.selectable.Selectable {
     private int ySize = 0;
     private boolean isBuildable = false;
 
-    public Building(String name, int hp, int constructionTime, int mineralCost, int gasCost, int xSize, int ySize, boolean isBuildable) {
-        super(name, hp, constructionTime, mineralCost, gasCost, isBuildable);
+    public Building(String name, int hp, int constructionTime, int mineralCost, int gasCost, int xSize, int ySize, boolean isBuildable, int armor, String race, int attack) {
+        super(name, hp, constructionTime, mineralCost, gasCost, isBuildable, armor, race, false, 0);
         this.xSize = xSize;
         this.ySize = ySize;
     }

@@ -8,15 +8,23 @@ public class Selectable extends Observable {
     private int constructionTime = 0;
     private int mineralCost = 0;
     private int gasCost = 0;
+    private int armor = 0;
+    private int attack = 0;
+    private String race = "";
+    private boolean isFlying = false;
     private boolean isBuildable = false;
 
-    public Selectable(String name, int hp, int constructionTime, int mineralCost, int gasCost, boolean isBuildable) {
+    public Selectable(String name, int hp, int constructionTime, int mineralCost, int gasCost, boolean isBuildable, int armor, String race, boolean isFlying, int attack) {
         this.name = name;
         this.hp = hp;
         this.constructionTime = constructionTime;
         this.mineralCost = mineralCost;
         this.gasCost = gasCost;
         this.isBuildable = false;
+        this.armor = armor;
+        this.race = race;
+        this.isFlying = isFlying;
+        this.attack = attack;
     }
 
     public void setName(String name) {
@@ -75,5 +83,37 @@ public class Selectable extends Observable {
 
     public boolean getBuildable() {
         return isBuildable;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
+    public int getArmor() {
+        return this.armor;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    public String getRace() {
+        return race;
+    }
+
+    public void setFlying(boolean isFlying) {
+        this.isFlying = isFlying;
+    }
+
+    public boolean getFlying() {
+        return isFlying;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getAttack() {
+        return this.attack;
     }
 }
