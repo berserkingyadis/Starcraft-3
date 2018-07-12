@@ -13,11 +13,9 @@ import java.util.ArrayList;
 public class Nexus extends ProtossBuilding implements BuildingInterface, UnitConstructorBuilding {
 
     private ArrayList<Unit> units = new ArrayList<Unit>();
-    private static Map map; //TODO rethink this, even though a nexus has a map and a player it is attributed to, it can be made better
-    private static Player player;
 
     public Nexus() {
-        super("Nexus", 400, 120, 100, 0, 2, 2, 200, true, 10); // TODO fix the values
+        super("Nexus", 400, 120, 100, 0, 2, 2, 200, true, 10, 1); // TODO fix the values
         this.setBuildable(true);
     }
 
@@ -26,14 +24,15 @@ public class Nexus extends ProtossBuilding implements BuildingInterface, UnitCon
         units.add(probe);
     }
 
-    public void createUnit(String string) {
+    public void createUnit(String string, Player player, Map map) {
         switch (string) {
-            case "Probe" : createProbe(player);
+            case "Probe" : createProbe(player, map);
+            break;
         }
     }
 
-    public void createProbe(Player player) {
-        if(player.getMinerals() >= 50) {
+    private void createProbe(Player player, Map map) {
+        if(player.getMinerals() >= 50 && player.getUnitByName("Probe").getBuildable()) {
             player.createUnit("Probe", units, map);
         }
         else {

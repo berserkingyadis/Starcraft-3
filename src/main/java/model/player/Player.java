@@ -5,16 +5,20 @@ import model.selectable.building.Building;
 import model.selectable.building.protoss.Nexus;
 import model.selectable.building.protoss.Pylon;
 import model.selectable.unit.Unit;
+import model.selectable.upgrades.ProtossUpgrades;
+import view.ConsoleView;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class Player {
+public class Player extends Observable {
 
     private ArrayList<Building> allBuildings = new ArrayList<Building>();
     private ArrayList<Unit> allUnits = new ArrayList<Unit>();
 
     private ArrayList<Building> playerBuildings = new ArrayList<Building>();
     private ArrayList<Unit> playerUnits = new ArrayList<Unit>();
+    private ArrayList<ProtossUpgrades> playerProtossUpgrades = new ArrayList<ProtossUpgrades>();
 
     private int minerals = 0;
     private int gas = 0;
@@ -41,9 +45,11 @@ public class Player {
         this.supply = supply;
         this.maxSupply = maxSupply;
         this.race = race;
+        initializeBuildings();
+
     }
 
-    public void initializeBuildings() {
+    private void initializeBuildings() {
         Building pylon = new Pylon();
         allBuildings.add(pylon);
         Building nexus = new Nexus();
@@ -51,13 +57,15 @@ public class Player {
     }
 
     public void createUnit(String unitName, ArrayList<Unit> list, Map map) {
+        // If condition for empty list should be handled in controller.
         if(!list.isEmpty()) {
             for(Unit u : list) {
                 if(unitName.equals(u.getName())) {
                     try {
                         Unit newUnit = u.getClass().newInstance();
                         map.addUnit(newUnit);
-                        // TODO unit.refreshStats();
+                        playerUnits.add(newUnit);
+                        // TODO unit.updateStats();
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InstantiationException e) {
@@ -66,9 +74,13 @@ public class Player {
                 }
             }
         }
+        else {
+            System.out.println("List is empty; no buildings to compare to...");
+        }
     }
 
     public void createBuilding(String buildingName, ArrayList<Building> list, Map map) {
+        // If condition for empty list should be handled in controller.
         if(!list.isEmpty()) {
             for(Building build : list) {
                 if(buildingName.equals(build.getName())) {
@@ -96,8 +108,25 @@ public class Player {
         building.deactivateBuildingEffect(building, this);
     }
 
+    public void removeUnit(Unit unit, Map map) {
+        map.removeUnit(unit);
+        playerUnits.remove(unit);
+    }
+
+    public void incrementPlayerMinerals() {
+        ConsoleView.consoleDebug("Incrementing minerals....");
+        setMinerals(getMinerals() + 1);
+    }
+    public void incrementPlayerGas() {
+        ConsoleView.consoleDebug("Incrementing gas....");
+        setGas(getGas() + 1);
+    }
+
+
     public void setMinerals(int minerals) {
         this.minerals = minerals;
+        setChanged();
+        notifyObservers(minerals + "minerals");
     }
 
     public int getMinerals() {
@@ -106,6 +135,8 @@ public class Player {
 
     public void setGas(int gas) {
         this.gas = gas;
+        setChanged();
+        notifyObservers(gas + "gas");
     }
 
     public int getGas() {
@@ -114,6 +145,8 @@ public class Player {
 
     public void setSupply(int supply) {
         this.supply = supply;
+        setChanged();
+        notifyObservers();
     }
 
     public int getSupply() {
@@ -122,6 +155,8 @@ public class Player {
 
     public void setMaxSupply(int maxSupply) {
         this.maxSupply = maxSupply;
+        setChanged();
+        notifyObservers();
     }
 
     public int getMaxSupply() {
@@ -130,6 +165,8 @@ public class Player {
 
     public void setRace(String race) {
         this.race = race;
+        setChanged();
+        notifyObservers();
     }
 
     public String getRace() {
@@ -138,6 +175,8 @@ public class Player {
 
     public void setHasNexus(boolean hasNexus) {
         this.hasNexus = hasNexus;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasNexus() {
@@ -146,6 +185,8 @@ public class Player {
 
     public void setHasGateway(boolean hasGateway) {
         this.hasGateway = hasGateway;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasGateway() {
@@ -154,6 +195,8 @@ public class Player {
 
     public void setHasCyberneticsCore(boolean hasCyberneticsCore) {
         this.hasCyberneticsCore = hasCyberneticsCore;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasCyberneticsCore() {
@@ -162,6 +205,8 @@ public class Player {
 
     public void setHasRoboticsBay(boolean hasRoboticsBay) {
         this.hasRoboticsBay = hasRoboticsBay;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasRoboticsBay() {
@@ -170,6 +215,8 @@ public class Player {
 
     public void setHasRoboticsFacility(boolean hasRoboticsFacility) {
         this.hasRoboticsFacility = hasRoboticsFacility;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasRoboticsFacility() {
@@ -178,6 +225,8 @@ public class Player {
 
     public void setHasStargate(boolean hasStargate) {
         this.hasStargate = hasStargate;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasStargate() {
@@ -186,6 +235,8 @@ public class Player {
 
     public void setHasFleetBeacon(boolean hasFleetBeacon) {
         this.hasFleetBeacon = hasFleetBeacon;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasFleetBeacon() {
@@ -194,6 +245,8 @@ public class Player {
 
     public void setHasTwilightCouncil(boolean hasTwilightCouncil) {
         this.hasTwilightCouncil = hasTwilightCouncil;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasTwilightCouncil() {
@@ -202,6 +255,8 @@ public class Player {
 
     public void setHasTemplarArchives(boolean hasTemplarArchives) {
         this.hasTemplarArchives = hasTemplarArchives;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasTemplarArchives() {
@@ -210,6 +265,8 @@ public class Player {
 
     public void setHasDarkShrine(boolean hasDarkShrine) {
         this.hasDarkShrine = hasDarkShrine;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasDarkShrine() {
@@ -218,14 +275,30 @@ public class Player {
 
     public void setHasForge(boolean hasForge) {
         this.hasForge = hasForge;
+        setChanged();
+        notifyObservers();
     }
 
     public boolean getHasForge() {
         return this.hasForge;
     }
 
+    public Unit getUnitByName(String string) {
+        for(Unit u : allUnits) {
+            if(string.equals(u.getName())) {
+                return u;
+            }
+        }
+        System.out.println("Could not find unit, should never happen.");
+        return null;
+    }
+
     public ArrayList<Building> getAllBuildings() {
         return this.allBuildings;
+    }
+
+    public ArrayList<Unit> getAllUnits() {
+        return this.allUnits;
     }
 
     public ArrayList<Building> getPlayerBuildings() {
