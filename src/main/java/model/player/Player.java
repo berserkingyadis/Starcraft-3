@@ -5,6 +5,7 @@ import model.selectable.building.Building;
 import model.selectable.building.protoss.Nexus;
 import model.selectable.building.protoss.Pylon;
 import model.selectable.unit.Unit;
+import model.selectable.unit.protoss.Probe;
 import model.selectable.upgrades.ProtossUpgrades;
 import view.ConsoleView;
 
@@ -46,7 +47,7 @@ public class Player extends Observable {
         this.maxSupply = maxSupply;
         this.race = race;
         initializeBuildings();
-
+        initializeUnits();
     }
 
     private void initializeBuildings() {
@@ -54,6 +55,11 @@ public class Player extends Observable {
         allBuildings.add(pylon);
         Building nexus = new Nexus();
         allBuildings.add(nexus);
+    }
+
+    private void initializeUnits() {
+        Unit probe = new Probe();
+        allUnits.add(probe);
     }
 
     public void createUnit(String unitName, ArrayList<Unit> list, Map map) {
@@ -65,6 +71,7 @@ public class Player extends Observable {
                         Unit newUnit = u.getClass().newInstance();
                         map.addUnit(newUnit);
                         playerUnits.add(newUnit);
+                        System.out.println("!!!added!!!");
                         // TODO unit.updateStats();
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();

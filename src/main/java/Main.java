@@ -13,7 +13,11 @@ public class Main {
         GameController controller = new GameController(model, view);
         System.out.print(model.getPlayer().getMinerals());
         System.out.println(model.getPlayer().getGas());
+        /**/
+
+        System.out.println(model.getPlayer().getPlayerUnits());
+        /**/
         frame.add(resourcePanel);
-        frame.setVisible(true);
+        frame.setVisible(false);
     }
 }

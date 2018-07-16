@@ -2,19 +2,12 @@ package model.selectable.unit;
 
 public class Unit extends model.selectable.Selectable {
 
-    private String name = "";
-    private int hp = 0;
-    private int constructionTime = 0;
-    private int mineralCost = 0;
-    private int gasCost = 0;
     private int supplyCost = 0;
-    private int armor = 0;
     private int groundWeaponUpgrade = 0;
     private int groundArmorUpgrade = 0;
     private int flightWeaponUpgrade = 0;
     private int flightArmorUpgrade = 0;
     private float movementSpeed = 0f;
-    private boolean isBuildable = false;
 
     public Unit(String name, int hp, int constructionTime, int mineralCost, int gasCost, boolean isBuildable, int supplyCost, float movementSpeed, int armor, String race, boolean isFlying, int attack, int groundWeaponUpgrade, int groundArmorUpgrade, int flightWeaponUpgrade, int flightArmorUpgrade) {
         super(name, hp, constructionTime, mineralCost, gasCost, isBuildable, armor, race, isFlying, attack);

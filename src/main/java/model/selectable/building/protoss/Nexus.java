@@ -32,11 +32,20 @@ public class Nexus extends ProtossBuilding implements BuildingInterface, UnitCon
     }
 
     private void createProbe(Player player, Map map) {
-        if(player.getMinerals() >= 50 && player.getUnitByName("Probe").getBuildable()) {
-            player.createUnit("Probe", units, map);
-        }
-        else {
-            System.out.println("not enough minerals...");
+        for(Unit u : player.getAllUnits()) {
+            if(u.getName().equals("Probe")) {
+                if(player.getMinerals() >= u.getMineralCost()) {
+                    if(player.getSupply() + u.getSupplyCost() <= player.getMaxSupply()) {
+                        player.createUnit("Probe", units, map);
+                    }
+                    else {
+                        System.out.println("not enough supply...");
+                    }
+                }
+                else {
+                    System.out.println("not enough minerals...");
+                }
+            }
         }
     }
 
