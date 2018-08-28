@@ -18,6 +18,6 @@ public class Main {
         System.out.println(model.getPlayer().getPlayerUnits());
         /**/
         frame.add(resourcePanel);
-        frame.setVisible(false);
+        frame.setVisible(true);
     }
 }
